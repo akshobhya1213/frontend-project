@@ -40,3 +40,18 @@ grid.innerHTML = products.map((p, i) => `
   </div>
 `).join('');
 
+// ===== Cart interaction =====
+let cartCount = 3;
+grid.addEventListener('click', (e) => {
+  if (e.target.classList.contains('add-btn')) {
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
+    e.target.textContent = 'Added ✓';
+    e.target.style.background = 'var(--mint)';
+    setTimeout(() => {
+      e.target.textContent = 'Add to cart';
+      e.target.style.background = '';
+    }, 1200);
+  }
+});
+
